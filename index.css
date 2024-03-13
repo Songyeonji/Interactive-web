@@ -1,0 +1,139 @@
+/* 전체 페이지에 대한 스타일 설정 */
+body {
+    display: flex; /* flexbox 레이아웃 사용하여 내용을 중앙 정렬 */
+    justify-content: center; /* 주 축(가로 축)을 기준으로 중앙 정렬 */
+    align-items: center; /* 교차 축(세로 축)을 기준으로 중앙 정렬 */
+    width: 100vw; /* 너비를 화면의 100%로 설정 */
+    height: 100vh; /* 높이를 화면의 100%로 설정 */
+    overflow: hidden; /* 내용이 넘칠 경우 숨김 처리 */
+    background-color: #24145E; /* 배경색 설정 */
+}
+
+/* z축을 중심으로 360도 회전하는 애니메이션 */
+@keyframes rotation {
+    to {
+        transform: rotateZ(360deg);
+    }
+}
+
+/* 크기가 변하는 애니메이션 */
+@keyframes shrinkAndGrow {
+    0% {
+        transform: scale(0);
+    }
+    25% {
+        transform: scale(0.5);
+    }
+    50% {
+        transform: scale(0);
+    }
+    75% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
+
+/* 가로로 확장되는 애니메이션 */
+@keyframes expandHorizontal {
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }
+}
+
+/* 아래에서 위로 나타나는 애니메이션 */
+@keyframes appearFromBottom {
+    from {
+        transform: translateY(1000px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* 위아래로 흔들리는 애니메이션 */
+@keyframes shakingUpAndDown {
+    from {
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(5px);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+    75% {
+        transform: translateY(5px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* 위로 올라가며 사라지는 애니메이션 */
+@keyframes soaking {
+    to {
+        transform: translateY(-250px) scale(0);
+    }
+}
+
+/* 가로로 축소되는 애니메이션 */
+@keyframes shrinkHorizontal {
+    to {
+        transform: scaleX(0);
+    }
+}
+
+/* 두 행성에 적용되는 회전 애니메이션 설정 */
+#planet_2, #planet_1 {
+    animation-name: rotation;
+    animation-duration: 4s, 3s; /* 각각 4초, 3초 동안 애니메이션 실행 */
+    animation-timing-function: linear; /* #planet_1에만 적용, 애니메이션 속도 일정 */
+    animation-iteration-count: infinite; /* 무한 반복 */
+    transform-box: fill-box;
+    transform-origin: center; /* 회전 축을 중앙으로 설정 */
+}
+
+/* 여러 별에 대한 크기 변화 애니메이션 설정 */
+#star_6, #star_3, #star_5, #star_7, #star_8 {
+    animation: shrinkAndGrow 4s, 2s, 6s, 9s, 11s infinite; /* 각 별의 애니메이션 시간과 무한 반복 설정 */
+    transform-box: fill-box;
+    transform-origin: center; /* 변환의 기준점을 중앙으로 설정 */
+}
+
+/* UFO 빔 확장 애니메이션 */
+#UFO-beam {
+    animation: expandHorizontal 3.5s; /* 3.5초 동안 가로로 확장 */
+    transform-box: fill-box;
+    transform-origin: center; /* 변환의 기준점을 중앙으로 설정 */
+}
+
+/* 아래에서 위로 나타나는 애니메이션 적용 */
+#number-0 {
+    animation: appearFromBottom 3s; /* 3초 동안 실행 */
+    animation-timing-function: cubic-bezier(.79,1.31,.82,-0.36); /* 애니메이션 속도 곡선 설정 */
+}
+
+/* 외계인 손이 위아래로 흔들리는 애니메이션 */
+#alien_hand-R, #alien_hand-L {
+    animation: shakingUpAndDown 1s infinite; /* 1초 동안 무한 반복 */
+    animation-timing-function: cubic-bezier(.35,.28,.82,.87); /* 애니메이션 속도 곡선 설정 */
+}
+
+/* 사라지는 애니메이션 적용 */
+#number-0-soaking {
+    animation: soaking 2s; /* 2초 동안 실행 */
+    transform-box: fill-box;
+    transform-origin: center; /* 변환의 기준점을 중앙으로 설정 */
+}
+
+/* UFO 빔이 가로로 축소되며 사라지는 애니메이션 */
+#UFO-beam-disappearing {
+    animation: shrinkHorizontal 2s; /* 2초 동안 실행 */
+    transform-box: fill-box;
+    transform-origin: center; /* 변환의 기준점을 중앙으로 설정 */
+}
